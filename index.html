@@ -64,6 +64,35 @@
     }
     nav a:hover{background:rgba(255,255,255,.06)}
     nav a.active{background:rgba(242,183,5,.14); border:1px solid rgba(242,183,5,.25)}
+    /* Dropdown */
+    .nav-has-dropdown{position:relative;}
+    .nav-has-dropdown > a{display:inline-flex; align-items:center; gap:5px;}
+    .nav-has-dropdown > a .chevron{font-size:10px; opacity:.6; transition:transform .2s; display:inline-block; margin-top:1px;}
+    .nav-has-dropdown:hover > a .chevron{transform:rotate(180deg);}
+    .dropdown-panel{
+      position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%);
+      min-width:220px;
+      background:rgba(6,9,19,.97);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px; padding:8px;
+      backdrop-filter:blur(20px);
+      box-shadow:0 24px 60px rgba(0,0,0,.6);
+      display:none; z-index:300;
+    }
+    .nav-has-dropdown:hover .dropdown-panel{display:block;}
+    .dropdown-panel a{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:10px;
+      color:rgba(255,255,255,.88); font-weight:700;
+      font-size:13px; letter-spacing:.3px; text-decoration:none;
+    }
+    .dropdown-panel a:hover{background:rgba(255,255,255,.07); color:#F2B705;}
+    .dp-dot{width:7px; height:7px; border-radius:50%; flex-shrink:0;}
+    .dp-dot.blue{background:#0B3C88;}
+    .dp-dot.red{background:#E10600;}
+    .dp-dot.yellow{background:#F2B705;}
+    .dp-dot.green{background:#34d08a;}
+    .dropdown-divider{height:1px; background:rgba(255,255,255,.10); margin:6px 8px;}
     .social{display:flex; gap:10px; align-items:center;}
     .iconbtn{
       width:38px; height:38px; display:grid; place-items:center;
@@ -433,7 +462,16 @@
       <nav aria-label="Primary">
         <ul>
           <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="teams.html">Teams</a></li>
+          <li class="nav-has-dropdown">
+            <a href="teams.html" aria-haspopup="true">Teams <span class="chevron">▾</span></a>
+            <div class="dropdown-panel" role="menu">
+              <a href="teams.html#first-team" role="menuitem"><span class="dp-dot blue"></span> First Team</a>
+              <a href="teams.html#ladies" role="menuitem"><span class="dp-dot red"></span> Ladies Team</a>
+              <a href="teams.html#development" role="menuitem"><span class="dp-dot yellow"></span> Development Team</a>
+              <div class="dropdown-divider"></div>
+              <a href="teams.html#juniors" role="menuitem"><span class="dp-dot green"></span> Juniors</a>
+            </div>
+          </li>
           <li><a href="history.html">History</a></li>
           <li><a href="pitch-hire.html">Pitch Hire</a></li>
           <li><a href="commercials.html">Commercials</a></li>
@@ -455,9 +493,12 @@
 
     <!-- mobile menu -->
     <div id="mobileMenu" style="display:none; padding:0 0 14px;">
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
         <a class="btn ghost" href="index.html">Home</a>
-        <a class="btn ghost" href="teams.html">Teams</a>
+        <a class="btn ghost" style="background:rgba(242,183,5,.10);border-color:rgba(242,183,5,.22)" href="teams.html#first-team">First Team</a>
+        <a class="btn ghost" style="background:rgba(242,183,5,.10);border-color:rgba(242,183,5,.22)" href="teams.html#ladies">Ladies</a>
+        <a class="btn ghost" style="background:rgba(242,183,5,.10);border-color:rgba(242,183,5,.22)" href="teams.html#development">Development</a>
+        <a class="btn ghost" style="background:rgba(242,183,5,.10);border-color:rgba(242,183,5,.22)" href="teams.html#juniors">Juniors</a>
         <a class="btn ghost" href="history.html">History</a>
         <a class="btn ghost" href="pitch-hire.html">Pitch Hire</a>
         <a class="btn ghost" href="commercials.html">Commercials</a>
@@ -554,7 +595,7 @@
       <div class="sectionHead">
         <div>
           <h2>Teams</h2>
-          <p>Everything in one place: First Team, Reserves, Ladies, Juniors, plus backroom staff.</p>
+          <p>Everything in one place: First Team, Ladies, Development Team, and Juniors.</p>
         </div>
         <a class="smallLink" href="teams.html">View all teams →</a>
       </div>
@@ -568,10 +609,10 @@
           </div>
         </a>
 
-        <a class="tile" href="teams.html#reserves" style="text-decoration:none">
-          <img src="assets/action-2.jpg" alt="Reserves" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, rgba(242,183,5,.22), rgba(11,60,136,.30))';"/>
+        <a class="tile" href="teams.html#development" style="text-decoration:none">
+          <img src="assets/action-2.jpg" alt="Development Team" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, rgba(242,183,5,.22), rgba(11,60,136,.30))';"/>
           <div class="tileInner">
-            <h3>Reserves</h3>
+            <h3>Development</h3>
             <span class="pill home">View Squad</span>
           </div>
         </a>
