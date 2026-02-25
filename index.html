@@ -344,6 +344,55 @@
       font-weight:1000; font-size:30px;
     }
     .price small{font-size:12px; opacity:.8; letter-spacing:1px; text-transform:uppercase}
+    /* Supporters Draw */
+    .drawBanner{
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid rgba(11,60,136,.45);
+      box-shadow:var(--shadow);
+      background:linear-gradient(135deg, rgba(11,60,136,.55) 0%, rgba(7,10,16,.90) 50%, rgba(242,183,5,.18) 100%);
+      position:relative;
+      padding:38px 34px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;
+      align-items:center;
+    }
+    .drawBanner::before{
+      content:"";
+      position:absolute; inset:0;
+      background:radial-gradient(700px 400px at 10% 50%, rgba(11,60,136,.45), transparent 65%),
+                 radial-gradient(500px 350px at 90% 50%, rgba(242,183,5,.18), transparent 65%);
+      pointer-events:none;
+    }
+    .drawContent{position:relative;}
+    .drawKicker{
+      display:inline-flex; gap:8px; align-items:center;
+      color:var(--yellow); font-weight:900; font-size:11px;
+      letter-spacing:1.6px; text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    .drawBanner h2{margin:0 0 8px; font-size:clamp(20px,2.8vw,30px); text-transform:uppercase; letter-spacing:.8px; font-weight:1000;}
+    .drawBanner p{margin:0 0 18px; color:rgba(255,255,255,.82); max-width:58ch;}
+    .drawPrizes{
+      position:relative;
+      display:flex; gap:18px; flex-wrap:wrap; align-items:stretch;
+      flex-shrink:0;
+    }
+    .drawPrize{
+      border-radius:18px;
+      border:1px solid rgba(242,183,5,.30);
+      background:rgba(242,183,5,.08);
+      padding:16px 20px;
+      text-align:center;
+      min-width:110px;
+    }
+    .drawPrize .amount{font-size:26px; font-weight:1000; color:var(--yellow); display:block;}
+    .drawPrize .label{font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.72);}
+    @media (max-width: 980px){
+      .drawBanner{grid-template-columns:1fr;}
+      .drawPrizes{justify-content:flex-start;}
+    }
     /* Footer */
     footer{padding:30px 0 50px; border-top:1px solid var(--line); color:rgba(255,255,255,.74)}
     .footGrid{display:grid; grid-template-columns: 1.2fr .8fr .8fr; gap:18px;}
@@ -387,6 +436,7 @@
           <li><a href="teams.html">Teams</a></li>
           <li><a href="history.html">History</a></li>
           <li><a href="pitch-hire.html">Pitch Hire</a></li>
+          <li><a href="commercials.html">Commercials</a></li>
         </ul>
       </nav>
 
@@ -410,6 +460,7 @@
         <a class="btn ghost" href="teams.html">Teams</a>
         <a class="btn ghost" href="history.html">History</a>
         <a class="btn ghost" href="pitch-hire.html">Pitch Hire</a>
+        <a class="btn ghost" href="commercials.html">Commercials</a>
       </div>
     </div>
   </div>
@@ -544,6 +595,61 @@
     </div>
   </section>
 
+  <!-- SUPPORTERS DRAW -->
+  <section id="supporters-draw">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Supporters Draw</h2>
+          <p>Join our monthly prize draw and help fund the club — every ticket makes a difference.</p>
+        </div>
+      </div>
+      <div class="drawBanner">
+        <div class="drawContent">
+          <div class="drawKicker"><span class="dot"></span> Monthly Draw • Open to All</div>
+          <h2>Join the <span style="color:var(--yellow)">Supporters Draw</span></h2>
+          <p>
+            For just a small monthly contribution, you could win one of our cash prizes — while directly supporting Penmaenmawr Phoenix FC.
+            Tickets are available from any committee member or by getting in touch via the club.
+          </p>
+          <div class="btnRow">
+            <a class="btn primary" href="mailto:info@yourclub.co.uk?subject=Supporters Draw">Get Your Ticket →</a>
+            <a class="btn ghost" href="#draw-info">How It Works</a>
+          </div>
+        </div>
+        <div class="drawPrizes">
+          <div class="drawPrize">
+            <span class="amount">1st</span>
+            <span class="label">Cash Prize</span>
+          </div>
+          <div class="drawPrize">
+            <span class="amount">2nd</span>
+            <span class="label">Cash Prize</span>
+          </div>
+          <div class="drawPrize">
+            <span class="amount">3rd</span>
+            <span class="label">Cash Prize</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="draw-info" class="card" style="margin-top:16px; padding:22px 24px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+        <div>
+          <div style="font-size:11px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:var(--yellow);margin-bottom:6px;">How to Enter</div>
+          <p style="margin:0;color:rgba(255,255,255,.82);font-size:14px;">Buy a monthly ticket from a committee member or contact the club. Numbers are assigned and entered into the draw each month.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:var(--yellow);margin-bottom:6px;">When is the Draw?</div>
+          <p style="margin:0;color:rgba(255,255,255,.82);font-size:14px;">The draw takes place at the end of each month. Winners are announced on our social media channels and contacted directly.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:var(--yellow);margin-bottom:6px;">Where Does the Money Go?</div>
+          <p style="margin:0;color:rgba(255,255,255,.82);font-size:14px;">All proceeds directly support the club — helping with kit, travel costs, pitch maintenance, and youth development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PITCH HIRE BANNER -->
   <section id="pitch">
     <div class="wrap">
@@ -588,6 +694,8 @@
           <a class="muted" href="teams.html">Teams</a>
           <a class="muted" href="history.html">History</a>
           <a class="muted" href="pitch-hire.html">Pitch Hire</a>
+          <a class="muted" href="commercials.html">Commercials</a>
+          <a class="muted" href="#supporters-draw">Supporters Draw</a>
         </div>
       </div>
 
